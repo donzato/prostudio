@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STICKET", "STICKET\STICKET.csproj", "{3E1F3F78-0BDD-47B6-8553-AEA186E7F622}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GZSticket", "STICKET\GZSticket.csproj", "{3E1F3F78-0BDD-47B6-8553-AEA186E7F622}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
