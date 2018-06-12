@@ -1,0 +1,34 @@
+html,body {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    color: #6f6f6e;
+}
+
+.reajuste {
+    <!--height: auto; -->
+    <!-- width: 80%; -->
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px dotted lightgrey;
+}
+
+.nodeco A:link {
+    list-style: none;
+    font-size: 14px;
+    text-decoration: none;
+    color: #6f6f6e;
+}
+
+.nodeco A:hover {
+    list-style: none;
+    font-size: 14px;
+    text-decoration: none;
+    color: #6f6f6e;
+}
+
+.nodeco A:visited {
+    list-style: none;
+    font-size: 14px;
+    text-decoration: none;
+    color: #6f6f6e;
+}

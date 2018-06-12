@@ -1,0 +1,52 @@
+﻿@model STICKET.Models.Ticket
+
+<h3><strong>TICKET NUMERO #@Model.Id</strong></h3><hr />
+
+@Html.ValidationSummary()
+
+<form class="form-group">
+
+    <div class="form-group">
+        <label>Asunto</label>
+        <input class="form-control" name="Asunto" value="@Model.Asunto" disabled>
+    </div>
+
+    <div class="form-group">
+        <label>Descripción</label>
+        <textarea class="form-control" rows="5" name="Descripcion" disabled>@Model.Descripcion</textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha de Ingreso</label>
+        <div class="justify-content-center">
+            <input class="text-center" type="datetime" name="Finc" value="@Model.Finc.Date" disabled>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha de Termino</label>
+        <div class="justify-content-center">
+            <input class="text-center" type="datetime" name="Fter" value="@Model.Fter.Date" disabled>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect">Estado</label>
+        <select class="form-control" name="EstadoId">
+            <option name="EstadoId" value="@Model.Estado.Id"> @Model.Estado.Nombre</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect">Departamento</label>
+        <select class="form-control" name="DeptoId">
+            <option name="EstadoId" value="@Model.Depto.Id"> @Model.Depto.Nombre</option>
+        </select>
+    </div>
+    <hr />
+    <div class="form-actions">
+        <button type="reset" class="btn">Volver</button>
+    </div>
+
+</form>
+

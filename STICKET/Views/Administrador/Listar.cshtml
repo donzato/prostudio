@@ -1,0 +1,33 @@
+﻿@model IEnumerable<STICKET.Models.Ticket>
+
+<h3><strong>LISTADO DE TICKETS</strong></h3><hr />
+
+<table class="table table-striped table-secondary">
+    <thead class="thead-dark">
+        <tr>
+            <th class="font-weight-bold">#</th>
+            <th class="font-weight-bold">Asunto</th>
+            <th class="font-weight-bold">Fecha de Ingreso</th>
+            <th class="font-weight-bold">Fecha Termino</th>
+            <th class="font-weight-bold">Estado</th>
+            <th class="font-weight-bold">Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ts in Model)
+        {
+            <tr>
+                <td>@ts.Id</td>
+                <td>@ts.Asunto</td>
+                <td>@ts.Finc</td>
+                <td>@ts.Fter</td>
+                <td>@ts.Estado.Nombre</td>
+                <td>
+                    <a href="@Url.Action("Ver","Usuario", new { id = @ts.Id })">Revisar</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<p class="table-result-count">Se han encontrado @Model.Count() resultado(s).</p>

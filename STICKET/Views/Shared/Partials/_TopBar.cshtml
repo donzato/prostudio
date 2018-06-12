@@ -1,0 +1,49 @@
+﻿<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="http://www.mundopacifico.cl" target="_blank" class="navbar-brand">
+        <img src="~/Content/img/logomp.svg" style="width: 100px;">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link text-white mr-4" href="#">INICIO</a>
+            <a class="nav-item nav-link text-white mr-4" href="#">ACTIVIDAD</a>
+            <a class="nav-item nav-link text-white mr-4" href="#">SESION</a>
+            <a href="http://www.mundopacifico.cl/ayuda-online/" target="_blank" class="bg-transparent btn btn-outline-success">Ayuda</a>
+        </div>
+    </div>
+</nav>
+@{ 
+    int e1 = 24;
+    int e2 = 67;
+    int e3 = 56;
+    int e4 = 16;
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-end mt-1">
+        <div class="mr-3 col-md-2 text-center" style="border: 1px dotted lightgrey;">
+            <strong>Sin resolver</strong><br />
+            @e1
+        </div>
+
+        <div class="mr-3 col-md-2 text-center" style="border: 1px dotted lightgrey;">
+            <strong>Abierto</strong><br />
+            @e2
+        </div>
+
+        <div class="mr-3 col-md-2 text-center" style="border: 1px dotted lightgrey;">
+            <strong>En espera</strong><br />
+            @e3
+        </div>
+
+        <div class="col-md-2 text-center" style="border: 1px dotted lightgrey;">
+            <strong>No asignado</strong><br />
+            @e4
+        </div>
+    </div>
+    <br />
+</div>

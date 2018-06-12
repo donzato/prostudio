@@ -1,0 +1,48 @@
+﻿@model STICKET.Models.Proyecto
+
+<h3><strong>CREAR PROYECTO</strong></h3><hr />
+
+@Html.ValidationSummary()
+
+<form class="form-group" method="post" action="@Url.Action("Crear","Proyecto")">
+
+    <div class="form-group">
+        <label><strong>Asunto</strong></label>
+        <input class="form-control" name="Nombre">
+    </div>
+
+    <div class="form-group">
+        <label><strong>Descripción</strong></label>
+        <textarea class="form-control" rows="3" name="Descripcion"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label><strong>Fecha de Ingrese</strong></label>
+        <div class="justify-content-center">
+            <input type="date" name="Finc">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><strong>Fecha de Termino</strong></label>
+        <div class="justify-content-center">
+            <input type="date" name="Fter">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect"><strong>Estado</strong></label>
+        <select class="form-control" name="EstadoId">
+            @foreach (var estadus in ViewBag.estados)
+            {
+                <option name="EstadoId" value="@estadus.Id"> @estadus.Nombre </option>
+            }
+            </select>
+    </div>
+    <hr />
+    <div class="form-actions">
+        <button type="submit" class="btn btn-outline-success">Crear</button>
+        <button type="reset" class="btn">Limpiar</button>
+    </div>
+
+</form>
