@@ -9,6 +9,8 @@ namespace STICKET.Controllers
 {
     public class PacificoController : Controller
     {
+        private STIContext _db = new STIContext();
+
         public ActionResult Index()
         {
             return View();

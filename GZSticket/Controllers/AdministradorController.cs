@@ -45,7 +45,7 @@ namespace STICKET.Controllers
             {
                 _db.Proyectos.Add(p);
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Listar");
             }
             List<Estado> estados = _db.Estados.ToList();
             ViewBag.estados = estados;
@@ -74,6 +74,49 @@ namespace STICKET.Controllers
             {
                 return new HttpNotFoundResult();
             }
+            return View(p);
+        }
+
+        [HttpGet]
+        public ActionResult Editar (int id)
+        {
+            Proyecto p = _db.Proyectos.Find(id);
+            if(p == null)
+            {
+                return new HttpNotFoundResult();
+            }
+
+            List<Estado> estados = _db.Estados.ToList();
+            ViewBag.estados = estados;
+
+            List<Colaborador> colaboradors = _db.Colaborador.ToList();
+            ViewBag.colaboradors = colaboradors;
+
+            List<Actividad> actividads = _db.Actividades.ToList();
+            ViewBag.actividads = actividads;
+
+            return View(p);
+        }
+
+        [HttpPost]
+        public ActionResult Editar (int id, Proyecto p)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(p).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Listar","Administrador", new { Id = p.Id });
+            }
+
+            List<Estado> estados = _db.Estados.ToList();
+            ViewBag.estados = estados;
+
+            List<Colaborador> colaboradors = _db.Colaborador.ToList();
+            ViewBag.colaboradors = colaboradors;
+
+            List<Actividad> actividads = _db.Actividades.ToList();
+            ViewBag.actividads = actividads;
+
             return View(p);
         }
     }

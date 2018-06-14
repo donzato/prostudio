@@ -1,0 +1,50 @@
+﻿@model STICKET.Models.Proyecto
+
+<h3><strong>EDITAR PROYECTO #@Model.Id</strong></h3><hr />
+
+@Html.ValidationSummary()
+
+<form class="form-group" method="post" action="@Url.Action("Editar","Administrador")">
+
+    <div class="form-group">
+        <label>Nombre</label>
+        <input class="form-control" name="Nombre" value="@Model.Nombre">
+    </div>
+
+    <div class="form-group">
+        <label>Descripción</label>
+        <textarea class="form-control" rows="5" name="Descripcion">@Model.Descripcion</textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha Ingreso</label>
+        <div class="justify-content-center">
+            <input class="text-center" type="datetime" name="Finc" value="@Model.Finc.Date">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha Termino</label>
+        <div class="justify-content-center">
+            <input class="text-center" type="datetime" name="Fter" value="@Model.Finc.Date">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect"><strong>Estado</strong></label>
+        <select class="form-control" name="EstadoId">
+            @foreach (var estadus in ViewBag.estados)
+            {
+                <option name="EstadoId" value="@estadus.Id"> @estadus.Nombre </option>
+            }
+        </select>
+    </div>
+
+    <hr />
+    <div class="form-actions">
+        <button type="submit" class="btn btn-outline-success">Actualizar</button>
+        <button type="button" class="btn" onclick="history.back()">Volver</button>
+    </div>
+
+</form>
+

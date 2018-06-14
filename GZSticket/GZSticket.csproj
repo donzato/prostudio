@@ -228,6 +228,7 @@
     <Content Include="Views\Administrador\Ver.cshtml" />
     <Content Include="Views\Administrador\Asignar.cshtml" />
     <Content Include="Views\Administrador\Consultar.cshtml" />
+    <Content Include="Views\Administrador\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
