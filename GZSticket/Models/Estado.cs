@@ -15,5 +15,23 @@ namespace STICKET.Models
 
         //relacion Proyecto
         public virtual ICollection<Proyecto> Proyectos { get; set; }
+
+        //conexion
+        private STIContext _db = new STIContext();
+
+        //lista de estado especifica
+        private List<Ticket> ObtenerEstado(int x)
+        {
+            return (from t in _db.Tickets
+                    where t.EstadoId == x
+                    select t).ToList();
+        }
+
+        //contar estado de una lista especifica
+        public int EsCount(int x)
+        {
+            List<Ticket> t = ObtenerEstado(x);
+            return (t.Count());
+        }
     }
 }

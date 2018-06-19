@@ -18,6 +18,13 @@ namespace STICKET.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            //Estados:
+            ViewBag.es1 = new Estado().EsCount(1);
+            ViewBag.es2 = new Estado().EsCount(2);
+            ViewBag.es3 = new Estado().EsCount(3);
+            ViewBag.es4 = new Estado().EsCount(4);
+            //Estados.
+
             List<Proyecto> proyectos = ObtenerProyectos();
             return View(proyectos);
         }
@@ -25,6 +32,13 @@ namespace STICKET.Controllers
         [HttpGet]
         public ActionResult Crear()
         {
+            //Estados:
+            ViewBag.es1 = new Estado().EsCount(1);
+            ViewBag.es2 = new Estado().EsCount(2);
+            ViewBag.es3 = new Estado().EsCount(3);
+            ViewBag.es4 = new Estado().EsCount(4);
+            //Estados.
+
             List<Estado> estados = _db.Estados.ToList();
             ViewBag.estados = estados;
 
@@ -41,6 +55,13 @@ namespace STICKET.Controllers
         [HttpPost]
         public ActionResult Crear(Proyecto p)
         {
+            //Estados:
+            ViewBag.es1 = new Estado().EsCount(1);
+            ViewBag.es2 = new Estado().EsCount(2);
+            ViewBag.es3 = new Estado().EsCount(3);
+            ViewBag.es4 = new Estado().EsCount(4);
+            //Estados.
+
             if (ModelState.IsValid)
             {
                 _db.Proyectos.Add(p);
@@ -62,6 +83,13 @@ namespace STICKET.Controllers
         [HttpGet]
         public ActionResult Listar()
         {
+            //Estados:
+            ViewBag.es1 = new Estado().EsCount(1);
+            ViewBag.es2 = new Estado().EsCount(2);
+            ViewBag.es3 = new Estado().EsCount(3);
+            ViewBag.es4 = new Estado().EsCount(4);
+            //Estados.
+
             List<Proyecto> p = ObtenerProyectos();
             return View(p);
         }
@@ -69,6 +97,13 @@ namespace STICKET.Controllers
         [HttpGet]
         public ActionResult Ver(int id)
         {
+            //Estados:
+            ViewBag.es1 = new Estado().EsCount(1);
+            ViewBag.es2 = new Estado().EsCount(2);
+            ViewBag.es3 = new Estado().EsCount(3);
+            ViewBag.es4 = new Estado().EsCount(4);
+            //Estados.
+
             Proyecto p = _db.Proyectos.Find(id);
             if (p == null)
             {
@@ -80,6 +115,13 @@ namespace STICKET.Controllers
         [HttpGet]
         public ActionResult Editar (int id)
         {
+            //Estados:
+            ViewBag.es1 = new Estado().EsCount(1);
+            ViewBag.es2 = new Estado().EsCount(2);
+            ViewBag.es3 = new Estado().EsCount(3);
+            ViewBag.es4 = new Estado().EsCount(4);
+            //Estados.
+
             Proyecto p = _db.Proyectos.Find(id);
             if(p == null)
             {
@@ -101,6 +143,13 @@ namespace STICKET.Controllers
         [HttpPost]
         public ActionResult Editar (int id, Proyecto p)
         {
+            //Estados:
+            ViewBag.es1 = new Estado().EsCount(1);
+            ViewBag.es2 = new Estado().EsCount(2);
+            ViewBag.es3 = new Estado().EsCount(3);
+            ViewBag.es4 = new Estado().EsCount(4);
+            //Estados.
+
             if (ModelState.IsValid)
             {
                 _db.Entry(p).State = System.Data.Entity.EntityState.Modified;

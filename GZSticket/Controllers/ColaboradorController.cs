@@ -1,4 +1,5 @@
-﻿using System;
+﻿using STICKET.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,13 @@ namespace STICKET.Controllers
         // GET: Colaborador
         public ActionResult Index()
         {
+            //Estados:
+            ViewBag.es1 = new Estado().EsCount(1);
+            ViewBag.es2 = new Estado().EsCount(2);
+            ViewBag.es3 = new Estado().EsCount(3);
+            ViewBag.es4 = new Estado().EsCount(4);
+            //Estados.
+
             return View();
         }
     }

@@ -9,12 +9,17 @@ namespace STICKET.Controllers
 {
     public class PacificoController : Controller
     {
-        private STIContext _db = new STIContext();
-
+        // GET: Pacifico
         public ActionResult Index()
         {
+            //Estados:
+            ViewBag.es1 = new Estado().EsCount(1);
+            ViewBag.es2 = new Estado().EsCount(2);
+            ViewBag.es3 = new Estado().EsCount(3);
+            ViewBag.es4 = new Estado().EsCount(4);
+            //Estados.
+
             return View();
         }
     }
 }
-
