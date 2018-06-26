@@ -10,7 +10,7 @@ namespace STICKET.Models
         public int Id { get; set; }
         public DateTime Finc { get; set; }
         public DateTime Fter { get; set; }
-        public string Asunto { get; set; }
+        public string Nombre { get; set; }
         public string Descripcion { get; set; }
 
         //relacion Estado

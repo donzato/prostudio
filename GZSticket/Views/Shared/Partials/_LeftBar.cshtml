@@ -1,22 +1,63 @@
 ﻿<div class="col-md-3 text-sm-left">
-    <ul class="flex-column list-group">
-        <li class="list-group-item navbar-dark bg-dark text-white"><strong>ADMINISTRADOR</strong></li>
-        <li class="list-group-item nodeco"><a href="@Url.Action("Crear","Administrador")">Crear Proyecto</a></li>
-        <li class="list-group-item nodeco"><a href="@Url.Action("Listar","Administrador")">Listar Proyectos</a></li>
-        <li class="list-group-item nodeco"><a href="@Url.Action("Asignar","Administrador")">Asignar Ticket</a></li>
-        <li class="list-group-item nodeco"><a href="@Url.Action("Consultar","Administrador")">Consultar Informe</a></li>
-    </ul>
-    <br />
-    <ul class="flex-column list-group">
-        <li class="list-group-item nodeco navbar-dark bg-dark text-white"><strong>COLABORADOR</strong></li>
-        <li class="list-group-item nodeco"><a href="@Url.Action("Actualizar","Colaborador")">Actualizar Ticket</a></li>
-        <li class="list-group-item nodeco"><a href="@Url.Action("Listar","Colaborador")">Listar Tareas</a></li>
-    </ul>
-    <br />
-    <ul class="flex-column list-group">
-        <li class="list-group-item nodeco navbar-dark bg-dark text-white"><strong>USUARIO</strong></li>
-        <li class="list-group-item nodeco"><a href="@Url.Action("Crear","Usuario")">Ingresar Ticket</a></li>
-        <li class="list-group-item nodeco"><a href="@Url.Action("Listar","Usuario")">Listar Tickets</a></li>
-    </ul>    
+    @if (HttpContext.Current.Session["EsColaborador"].ToString() == "true")
+    {
+        <ul class="flex-column list-group">
+            <li class="list-group-item navbar-dark bg-dark text-white"><strong>ACTIVIDADES</strong></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Crear", "Actividad")">Crear Actividad</a></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Index", "Actividad")">Ver Actividad</a></li>
+
+        </ul>
+    }
+
+    @if (HttpContext.Current.Session["EsAdmin"].ToString() == "true")
+    {
+        <ul class="flex-column list-group">
+            <li class="list-group-item navbar-dark bg-dark text-white"><strong>COLABORADORES</strong></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Crear", "Colaborador")">Asignar Colaborador</a></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Index", "Colaborador")">Ver Colaboradores</a></li>
+
+        </ul>
+    }
+
+    @if (HttpContext.Current.Session["EsAdmin"].ToString() == "true")
+    {
+        <ul class="flex-column list-group">
+            <li class="list-group-item navbar-dark bg-dark text-white"><strong>DEPARTAMENTOS</strong></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Crear", "Departamento")">Crear Departamento</a></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Index", "Departamento")">Ver Departamentos</a></li>
+
+        </ul>
+    }
+
+    @if (HttpContext.Current.Session["EsAdmin"].ToString() == "true")
+    {
+        <ul class="flex-column list-group">
+            <li class="list-group-item navbar-dark bg-dark text-white"><strong>PROYECTOS</strong></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Crear", "Proyecto")">Crear Proyecto</a></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Index", "Proyecto")">Listar Proyectos</a></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Asignar", "Proyecto")">Asignar Proyecto</a></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Consultar", "Proyecto")">Consultar Proyecto</a></li>
+
+        </ul>
+    }
+
+    @if (HttpContext.Current.Session["EsAdmin"].ToString() == "true")
+    {
+        <ul class="flex-column list-group">
+            <li class="list-group-item navbar-dark bg-dark text-white"><strong>SUCURSALES</strong></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Crear", "Sucursal")">Crear Sucursal</a></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Index", "Sucursal")">Ver Sucursales</a></li>
+
+        </ul>
+    }
+
+    @if (HttpContext.Current.Session["EsUsuario"].ToString() == "true")
+    {
+        <ul class="flex-column list-group">
+            <li class="list-group-item nodeco navbar-dark bg-dark text-white"><strong>TICKETS</strong></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Crear", "Ticket")">Crear Ticket</a></li>
+            <li class="list-group-item nodeco"><a href="@Url.Action("Index", "Ticket")">Listar Tickets</a></li>
+        </ul>
+    }
     <br />
 </div>

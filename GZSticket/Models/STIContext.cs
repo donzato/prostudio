@@ -9,7 +9,7 @@ namespace STICKET.Models
     public class STIContext : DbContext
     {
         public DbSet<Actividad> Actividades { get; set; }
-        public DbSet<Ciudad> Ciudades { get; set; }
+        public DbSet<Provincia> Provincias { get; set; }
         public DbSet<Comuna> Comunas { get; set; }
         public DbSet<Depto> Deptos { get; set; }
         public DbSet<Especialidad> Especialidades { get; set; }
@@ -20,5 +20,7 @@ namespace STICKET.Models
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Colaborador> Colaborador { get; set; }
+        public DbSet<Login> Logins { get; set; }
+        public DbSet<Cargo> Cargos { get; set; }
     }
 }

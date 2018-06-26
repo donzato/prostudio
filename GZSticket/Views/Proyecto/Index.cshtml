@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<STICKET.Models.Proyecto>
-
-<h3><strong>LISTADO DE PROYECTOS</strong></h3><hr />
-
+@Html.ValidationSummary()
 <table class="table table-striped table-secondary">
     <thead class="thead-dark">
         <tr>
@@ -17,20 +15,19 @@
     <tbody>
         @foreach (var pro in Model)
         {
-        <tr>
-            <td>@pro.Id</td>
-            <td>@pro.Nombre</td>
-            <td>@pro.Descripcion</td>
-            <td>@pro.Finc</td>
-            <td>@pro.Fter</td>
-            <td>@pro.Estado.Nombre</td>
-            <td>
-                <a href="@Url.Action("Ver","Administrador", new { id = @pro.Id })">Ver</a>
-                <a href="@Url.Action("Editar","Administrador", new { id = @pro.Id })">Editar</a>
-            </td>
-        </tr>
+            <tr>
+                <td>@pro.Id</td>
+                <td>@pro.Nombre</td>
+                <td>@pro.Descripcion</td>
+                <td>@pro.Finc</td>
+                <td>@pro.Fter</td>
+                <td>@pro.Estado.Nombre</td>
+                <td>
+                    <a class="nodeco" href="@Url.Action("Ver","Proyecto", new { id = @pro.Id })">ver</a>
+                    <a class="nodeco" href="@Url.Action("Editar","Proyecto", new { id = @pro.Id })">| editar</a>
+                </td>
+            </tr>
         }
-
     </tbody>
 </table>
 <p class="table-result-count">Se han encontrado @Model.Count() resultado(s).</p>

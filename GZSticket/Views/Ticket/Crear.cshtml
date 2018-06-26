@@ -1,13 +1,11 @@
-﻿@model STICKET.Models.Proyecto
-
-<h3><strong>CREAR PROYECTO</strong></h3><hr />
+﻿@model STICKET.Models.Ticket
 
 @Html.ValidationSummary()
 
-<form class="form-group" method="post" action="@Url.Action("Crear","Administrador")">
+<form class="form-group" method="post" action="@Url.Action("Crear","Ticket")">
 
     <div class="form-group">
-        <label><strong>Nombre</strong></label>
+        <label><strong>Asunto</strong></label>
         <input class="form-control" name="Nombre">
     </div>
 
@@ -17,25 +15,36 @@
     </div>
 
     <div class="form-group">
-        <label><strong>Fecha de Ingrese</strong></label>
+        <label><strong>Fecha Ingreso</strong></label>
         <div class="justify-content-center">
             <input type="date" name="Finc">
         </div>
     </div>
 
     <div class="form-group">
-        <label><strong>Fecha de Termino</strong></label>
+        <label><strong>Fecha Estimación</strong></label>
         <div class="justify-content-center">
             <input type="date" name="Fter">
         </div>
     </div>
 
+
     <div class="form-group">
         <label for="LabelSelect"><strong>Estado</strong></label>
         <select class="form-control" name="EstadoId">
-            @foreach (var estadus in ViewBag.estados)
+            @foreach (var es in ViewBag.Estado)
             {
-                <option name="EstadoId" value="@estadus.Id"> @estadus.Nombre </option>
+                <option name="EstadoId" value="@es.Id"> @es.Nombre </option>
+            }
+            </select>
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect"><strong>Departamento</strong></label>
+        <select class="form-control" name="DeptoId">
+            @foreach (var dep in ViewBag.Depto)
+            {
+                <option name="DeptoId" value="@dep.Id"> @dep.Nombre </option>
             }
             </select>
     </div>

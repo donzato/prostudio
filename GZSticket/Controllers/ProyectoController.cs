@@ -7,7 +7,8 @@ using System.Web.Mvc;
 
 namespace STICKET.Controllers
 {
-    public class AdministradorController : Controller
+    [Authorize]
+    public class ProyectoController : Controller
     {
         private STIContext _db = new STIContext();
         private List<Proyecto> ObtenerProyectos()
@@ -25,8 +26,8 @@ namespace STICKET.Controllers
             ViewBag.es4 = new Estado().EsCount(4);
             //Estados.
 
-            List<Proyecto> proyectos = ObtenerProyectos();
-            return View(proyectos);
+            List<Proyecto> p = ObtenerProyectos();
+            return View(p);
         }
 
         [HttpGet]
@@ -66,7 +67,7 @@ namespace STICKET.Controllers
             {
                 _db.Proyectos.Add(p);
                 _db.SaveChanges();
-                return RedirectToAction("Listar");
+                return RedirectToAction("Index");
             }
             List<Estado> estados = _db.Estados.ToList();
             ViewBag.estados = estados;
@@ -77,20 +78,6 @@ namespace STICKET.Controllers
             List<Actividad> actividads = _db.Actividades.ToList();
             ViewBag.actividads = actividads;
 
-            return View(p);
-        }
-
-        [HttpGet]
-        public ActionResult Listar()
-        {
-            //Estados:
-            ViewBag.es1 = new Estado().EsCount(1);
-            ViewBag.es2 = new Estado().EsCount(2);
-            ViewBag.es3 = new Estado().EsCount(3);
-            ViewBag.es4 = new Estado().EsCount(4);
-            //Estados.
-
-            List<Proyecto> p = ObtenerProyectos();
             return View(p);
         }
 
@@ -113,7 +100,7 @@ namespace STICKET.Controllers
         }
 
         [HttpGet]
-        public ActionResult Editar (int id)
+        public ActionResult Editar(int id)
         {
             //Estados:
             ViewBag.es1 = new Estado().EsCount(1);
@@ -123,7 +110,7 @@ namespace STICKET.Controllers
             //Estados.
 
             Proyecto p = _db.Proyectos.Find(id);
-            if(p == null)
+            if (p == null)
             {
                 return new HttpNotFoundResult();
             }
@@ -141,7 +128,7 @@ namespace STICKET.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar (int id, Proyecto p)
+        public ActionResult Editar(int id, Proyecto p)
         {
             //Estados:
             ViewBag.es1 = new Estado().EsCount(1);
@@ -154,7 +141,7 @@ namespace STICKET.Controllers
             {
                 _db.Entry(p).State = System.Data.Entity.EntityState.Modified;
                 _db.SaveChanges();
-                return RedirectToAction("Listar","Administrador", new { Id = p.Id });
+                return RedirectToAction("Index", "Proyecto", new { Id = p.Id });
             }
 
             List<Estado> estados = _db.Estados.ToList();

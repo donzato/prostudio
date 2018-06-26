@@ -12,7 +12,10 @@ namespace STICKET.Models
         public string Apellido { get; set; }
         public string Correo { get; set; }
 
-        //relacion cargo
+        //relacion con colaborador
+        public virtual ICollection<Colaborador> Colaborador { get; set; }
+
+        //relacion con cargo
         public int CargoId { get; set; }
         public virtual Cargo Cargo { get; set; }
     }

@@ -1,0 +1,33 @@
+﻿@model STICKET.Models.Colaborador
+
+@Html.ValidationSummary()
+
+<form class="form-group">
+
+    <div class="form-group">
+        <label>Asunto</label>
+        <input class="form-control" name="Asunto" value="@Model.Asunto" disabled>
+    </div>
+
+    <div class="form-group">
+        <label>Perfil</label>
+        <input class="form-control" name="PerfilId" value="@Model.Perfil.Nombre @Model.Perfil.Apellido | Email: @Model.Perfil.Correo" disabled>
+    </div>
+
+    <div class="form-group">
+        <label>Especialidad</label>
+        <input class="form-control" name="EspecialidadId" value="@Model.Especialidad.Nombre" disabled>
+    </div>
+
+    <div class="form-group">
+        <label>Proyecto</label>
+        <input class="form-control" name="ProyectoId" value="@Model.Proyecto.Nombre" disabled>
+    </div>
+
+    <hr />
+    <div class="form-actions">
+        <button type="button" class="btn btn-outline-success" onclick="history.back()">Volver</button>
+    </div>
+
+</form>
+

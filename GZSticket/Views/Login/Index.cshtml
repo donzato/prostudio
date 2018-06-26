@@ -1,0 +1,69 @@
+﻿@model STICKET.Models.Login
+
+@{
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+@Html.ValidationSummary()
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="text/html">
+    <title>Login</title>
+    <link href="~/Content/css/reset.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/main.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" media="screen" rel="stylesheet" type="text/css">
+
+    <style>
+        .cenlog {
+            height: 550px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .rellog {
+            padding: 50px 50px 50px 50px;
+            border: 2px dotted lightgrey;
+        }
+
+        .texlog {
+            font-family: 'Open Sans',sans-serif;
+            font-weight: bold;
+            color: #6f6f6e;
+            padding-bottom: 25px;
+            font-size: 22px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand"></a>
+        <form class="form-inline">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ayuda</button>
+        </form>
+    </nav>
+
+    <div class="container-fluid d-flex justify-content-center align-items-center cenlog ">
+        <div class="wrapper text-center rellog">
+            <a href="#" class="rounded"><img src="~/Content/img/logomp.svg" style="width: 260px;"></a>
+
+            <form action="" method="post" name="Login_Form" class="form-signin">
+                <hr>
+                <h3 class="text-center texlog">Sistema GZSticket</h3>
+
+                <input type="text" class="form-control" name="Nombre" placeholder="usuario" required="" autofocus="" />
+                <br>
+                <input type="password" class="form-control" name="Clave" placeholder="contraseña" required="" />
+                <br>
+                <button class="btn btn-lg btn-success btn-block" name="Submit" value="Login" type="Submit">Acceso</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+</body>

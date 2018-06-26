@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace STICKET.Controllers
 {
+    [Authorize]
     public class PacificoController : Controller
     {
         // GET: Pacifico

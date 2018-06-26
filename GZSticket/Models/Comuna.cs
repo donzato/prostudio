@@ -13,8 +13,8 @@ namespace STICKET.Models
         //Relacion sucursal
         public virtual ICollection<Sucursal> Sucursal { get; set; }
 
-        //relacion Ciudad
-        public int CiudadId { get; set; }
-        public virtual Ciudad Ciudad { get; set; }    
+        //relacion Provincia
+        public int ProvinciaId { get; set; }
+        public virtual Provincia Provincia { get; set; }    
     }
 }

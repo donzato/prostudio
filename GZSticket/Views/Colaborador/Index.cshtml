@@ -1,0 +1,29 @@
+﻿@model IEnumerable<STICKET.Models.Colaborador>
+
+<table class="table table-striped table-secondary">
+    <thead class="thead-dark">
+        <tr>
+            <th class="font-weight-bold">#</th>
+            <th class="font-weight-bold">ASUNTO</th>
+            <th class="font-weight-bold">PERFIL</th>
+            <th class="font-weight-bold">ESPECIALIDAD</th>
+            <th class="font-weight-bold">PROYECTO</th>
+            <th class="font-weight-bold">Opciones</th>
+        </tr>
+    </thead>
+    <tbody @foreach (var c in Model) { <tr>
+                <td>@c.Id</td>
+                <td>@c.Asunto</td>
+                <td>@c.Perfil.Nombre</td>
+                <td>@c.Especialidad.Nombre</td>
+                <td>@c.Proyecto.Nombre</td>
+                <td>
+                    <a class="nodeco" href="@Url.Action("Ver","Colaborador", new { id = @c.Id })">ver</a>
+                    <a class="nodeco" href="@Url.Action("Editar","Colaborador", new { id = @c.Id })">| editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="table-result-count">Se han encontrado @Model.Count() resultado(s).</p>
+

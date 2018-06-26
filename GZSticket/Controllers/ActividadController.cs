@@ -8,13 +8,12 @@ using System.Web.Mvc;
 namespace STICKET.Controllers
 {
     [Authorize]
-    public class ColaboradorController : Controller
+    public class ActividadController : Controller
     {
         private STIContext _db = new STIContext();
-
-        private List<Colaborador> ObtenerColaborador()
+        private List<Actividad> ObtenerActividades()
         {
-            return _db.Colaborador.ToList();
+            return _db.Actividades.ToList();
         }
 
         [HttpGet]
@@ -25,10 +24,10 @@ namespace STICKET.Controllers
             ViewBag.es2 = new Estado().EsCount(2);
             ViewBag.es3 = new Estado().EsCount(3);
             ViewBag.es4 = new Estado().EsCount(4);
-            //Estados
+            //Estados.
 
-            List<Colaborador> col = ObtenerColaborador();
-            return View(col);
+            List<Actividad> p = ObtenerActividades();
+            return View(p);
         }
 
         [HttpGet]
@@ -41,21 +40,15 @@ namespace STICKET.Controllers
             ViewBag.es4 = new Estado().EsCount(4);
             //Estados.
 
-            List<Perfil> pe = _db.Perfiles.ToList();
-            ViewBag.Perfil = pe;
+            List<Ticket> tickets = _db.Tickets.ToList();
+            ViewBag.Ticket = tickets;
 
-            List<Especialidad> es = _db.Especialidades.ToList();
-            ViewBag.Especialidad = es;
-
-            List<Proyecto> pro = _db.Proyectos.ToList();
-            ViewBag.Proyecto = pro;
-
-            Colaborador col = new Colaborador();
-            return View(col);
+            Actividad p = new Actividad();
+            return View(p);
         }
 
         [HttpPost]
-        public ActionResult Crear(Colaborador col)
+        public ActionResult Crear(Actividad p)
         {
             //Estados:
             ViewBag.es1 = new Estado().EsCount(1);
@@ -66,21 +59,15 @@ namespace STICKET.Controllers
 
             if (ModelState.IsValid)
             {
-                _db.Colaborador.Add(col);
+                _db.Actividades.Add(p);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            List<Perfil> pe = _db.Perfiles.ToList();
-            ViewBag.Perfil = pe;
+            List<Ticket> tickets = _db.Tickets.ToList();
+            ViewBag.Ticket = tickets;
 
-            List<Especialidad> es = _db.Especialidades.ToList();
-            ViewBag.Especialidad = es;
-
-            List<Proyecto> pro = _db.Proyectos.ToList();
-            ViewBag.Proyecto = pro;
-
-            return View(col);
+            return View(p);
         }
 
         [HttpGet]
@@ -93,12 +80,12 @@ namespace STICKET.Controllers
             ViewBag.es4 = new Estado().EsCount(4);
             //Estados.
 
-            Colaborador c = _db.Colaborador.Find(id);
-            if (c == null)
+            Actividad p = _db.Actividades.Find(id);
+            if (p == null)
             {
                 return new HttpNotFoundResult();
             }
-            return View(c);
+            return View(p);
         }
 
         [HttpGet]
@@ -111,26 +98,20 @@ namespace STICKET.Controllers
             ViewBag.es4 = new Estado().EsCount(4);
             //Estados.
 
-            Colaborador c = _db.Colaborador.Find(id);
-            if (c == null)
+            Actividad p = _db.Actividades.Find(id);
+            if (p == null)
             {
                 return new HttpNotFoundResult();
             }
 
-            List<Perfil> pe = _db.Perfiles.ToList();
-            ViewBag.Perfil = pe;
+            List<Ticket> tickets = _db.Tickets.ToList();
+            ViewBag.Ticket = tickets;
 
-            List<Especialidad> es = _db.Especialidades.ToList();
-            ViewBag.Especialidad = es;
-
-            List<Proyecto> pro = _db.Proyectos.ToList();
-            ViewBag.Proyecto = pro;
-
-            return View(c);
+            return View(p);
         }
 
         [HttpPost]
-        public ActionResult Editar(int id, Colaborador c)
+        public ActionResult Editar(int id, Actividad p)
         {
             //Estados:
             ViewBag.es1 = new Estado().EsCount(1);
@@ -141,21 +122,15 @@ namespace STICKET.Controllers
 
             if (ModelState.IsValid)
             {
-                _db.Entry(c).State = System.Data.Entity.EntityState.Modified;
+                _db.Entry(p).State = System.Data.Entity.EntityState.Modified;
                 _db.SaveChanges();
-                return RedirectToAction("Index", "Colaborador", new { Id = c.Id });
+                return RedirectToAction("Index", "Actividad", new { Id = p.Id });
             }
 
-            List<Perfil> pe = _db.Perfiles.ToList();
-            ViewBag.Perfil = pe;
+            List<Ticket> tickets = _db.Tickets.ToList();
+            ViewBag.Ticket = tickets;
 
-            List<Especialidad> es = _db.Especialidades.ToList();
-            ViewBag.Especialidad = es;
-
-            List<Proyecto> pro = _db.Proyectos.ToList();
-            ViewBag.Proyecto = pro;
-
-            return View(c);
+            return View(p);
         }
     }
 }

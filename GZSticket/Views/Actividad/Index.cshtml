@@ -1,0 +1,30 @@
+﻿@model IEnumerable<STICKET.Models.Actividad>
+
+@Html.ValidationSummary()
+
+<table class="table table-striped table-secondary">
+    <thead class="thead-dark">
+        <tr>
+            <th class="font-weight-bold">#</th>
+            <th class="font-weight-bold">Comentario</th>
+            <th class="font-weight-bold">Fecha Ingreso</th>
+            <th class="font-weight-bold">Fecha Termino</th>
+            <th class="font-weight-bold">Ticket</th>
+            <th class="font-weight-bold">Opciones</th>
+        </tr>
+    </thead>
+    <tbody @foreach (var act in Model) { <tr>
+                <td>@act.Id</td>
+                <td>@act.Comentario</td>
+                <td>@act.Finc</td>
+                <td>@act.Fter</td>
+                <td>@act.Ticket.Nombre</td>
+                <td>
+                    <a class="nodeco" href="@Url.Action("Ver","Actividad", new { id = @act.Id })">ver</a>
+                    <a class="nodeco" href="@Url.Action("Editar","Actividad", new { id = @act.Id })">| editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="table-result-count">Se han encontrado @Model.Count() resultado(s).</p>

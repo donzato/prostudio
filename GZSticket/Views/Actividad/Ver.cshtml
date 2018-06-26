@@ -1,0 +1,38 @@
+﻿@model STICKET.Models.Actividad
+
+@Html.ValidationSummary()
+
+<form class="form-group">
+
+    <div class="form-group">
+        <label for="LabelSelect">Ticket</label>
+        <select class="form-control" name="TicketId">
+            <option name="TicketId" value="@Model.Ticket.Id"> @Model.Ticket.Nombre</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Descripción</label>
+        <textarea class="form-control" rows="5" name="Descripcion" disabled>@Model.Comentario</textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha Ingreso</label>
+        <div class="justify-content-center">
+            <input class="text-center" type="datetime" name="Finc" value="@Model.Finc.Date" disabled>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Fecha Estimación</label>
+        <div class="justify-content-center">
+            <input class="text-center" type="datetime" name="Fter" value="@Model.Fter.Date" disabled>
+        </div>
+    </div>
+    <hr />
+    <div class="form-actions">
+        <button type="button" class="btn btn-outline-success" onclick="history.back()">Volver</button>
+    </div>
+
+</form>
+

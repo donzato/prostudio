@@ -1,14 +1,12 @@
 ﻿@model STICKET.Models.Ticket
 
-<h3><strong>TICKET NUMERO #@Model.Id</strong></h3><hr />
-
 @Html.ValidationSummary()
 
 <form class="form-group">
 
     <div class="form-group">
         <label>Asunto</label>
-        <input class="form-control" name="Asunto" value="@Model.Asunto" disabled>
+        <input class="form-control" name="Asunto" value="@Model.Nombre" disabled>
     </div>
 
     <div class="form-group">
@@ -45,7 +43,7 @@
     </div>
     <hr />
     <div class="form-actions">
-        <button type="reset" class="btn">Volver</button>
+        <button type="button" class="btn btn-outline-success" onclick="history.back()">Volver</button>
     </div>
 
 </form>

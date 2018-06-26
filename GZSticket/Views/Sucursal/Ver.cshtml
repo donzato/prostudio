@@ -1,0 +1,24 @@
+﻿@model STICKET.Models.Sucursal
+
+@Html.ValidationSummary()
+
+<form class="form-group">
+    <div class="form-group">
+        <label>Asunto</label>
+        <input class="form-control" name="Nombre" value="@Model.Nombre" disabled>
+    </div>
+    <div class="form-group">
+        <label>Descripción</label>
+        <textarea class="form-control" rows="5" name="Direccion" disabled>@Model.Direccion</textarea>
+    </div>
+    <div class="form-group">
+        <label for="LabelSelect">Comuna</label>
+        <select class="form-control" name="ComunaId">
+            <option name="EstadoId" value="@Model.Comuna.Id"> @Model.Comuna.Nombre</option>
+        </select>
+    </div>
+    <hr />
+    <div class="form-actions">
+        <button type="button" class="btn btn-outline-success" onclick="history.back()">Volver</button>
+    </div>
+</form>

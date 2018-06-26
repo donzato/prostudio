@@ -21,6 +21,6 @@ namespace STICKET.Models
         public virtual ICollection<Colaborador> Colaborador { get; set; }
 
         //relacion Actividades
-        public virtual ICollection<Actividad> Actividad { get; set; }
+        //public virtual ICollection<Actividad> Actividad { get; set; }
     }
 }

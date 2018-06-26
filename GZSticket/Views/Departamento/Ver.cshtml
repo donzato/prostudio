@@ -1,0 +1,24 @@
+﻿@model STICKET.Models.Depto
+
+@Html.ValidationSummary()
+
+<form class="form-group">
+    <div class="form-group">
+        <label><strong>Nombre</strong></label>
+        <input class="form-control" name="Nombre" value="@Model.Nombre" disabled>
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect">Sucursal</label>
+        <select class="form-control" name="SucursalId">
+            <option name="SucursalId" value="@Model.Sucursal.Id"> @Model.Sucursal.Nombre</option>
+        </select>
+    </div>
+
+    <hr />
+    <div class="form-actions">
+        <button type="button" class="btn btn-outline-success" onclick="history.back()">Volver</button>
+    </div>
+</form>
+
+

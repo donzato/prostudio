@@ -9,10 +9,12 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link text-white mr-4" href="#">INICIO</a>
-            <a class="nav-item nav-link text-white mr-4" href="#">ACTIVIDAD</a>
-            <a class="nav-item nav-link text-white mr-4" href="#">SESION</a>
-            <a href="http://www.mundopacifico.cl/ayuda-online/" target="_blank" class="bg-transparent btn btn-outline-success">Ayuda</a>
+            <a class="nav-item nav-link text-white mr-3" href="#">INICIO</a>
+            <a class="nav-item nav-link text-white mr-3" href="#">ACTIVIDAD</a>
+            <a class="nav-item nav-link text-white mr-3" href="#">SESION: (@HttpContext.Current.User.Identity.Name)</a>
+            <a href="http://www.mundopacifico.cl/ayuda-online/" target="_blank" class="bg-transparent btn btn-outline-success mr-3">Ayuda</a>
+            <a href="/Login/Logout" class="bg-transparent btn btn-outline-danger">SALIR</a>
+
         </div>
     </div>
 </nav>

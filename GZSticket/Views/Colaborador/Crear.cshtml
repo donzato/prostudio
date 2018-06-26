@@ -1,0 +1,49 @@
+﻿@model STICKET.Models.Colaborador
+
+@Html.ValidationSummary()
+
+<form class="form-group" method="post" action="@Url.Action("Crear","Colaborador")">
+
+    <div class="form-group">
+        <label><strong>Descripción de tarea</strong></label>
+        <input class="form-control" name="Asunto">
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect"><strong>Perfil</strong></label>
+        <select class="form-control" name="PerfilId">
+            @foreach (var p in ViewBag.Perfil)
+            {
+                <option name="EstadoId" value="@p.Id"> @p.Nombre </option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect"><strong>Especialidad</strong></label>
+        <select class="form-control" name="EspecialidadId">
+            @foreach (var e in ViewBag.Especialidad)
+            {
+                <option name="EstadoId" value="@e.Id"> @e.Nombre </option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect"><strong>Proyecto</strong></label>
+        <select class="form-control" name="ProyectoId">
+            @foreach (var pp in ViewBag.Proyecto)
+            {
+                <option name="EstadoId" value="@pp.Id"> @pp.Nombre </option>
+            }
+        </select>
+    </div>
+
+
+    <hr />
+    <div class="form-actions">
+        <button type="submit" class="btn btn-outline-success">Crear</button>
+        <button type="reset" class="btn">Limpiar</button>
+    </div>
+</form>
+

@@ -1,0 +1,42 @@
+﻿@model STICKET.Models.Actividad
+
+@Html.ValidationSummary()
+
+<form class="form-group" method="post" action="@Url.Action("Crear","Actividad")">
+
+    <div class="form-group">
+        <label for="LabelSelect"><strong>Ticket</strong></label>
+        <select class="form-control" name="TicketId">
+            @foreach (var tic in ViewBag.Ticket)
+            {
+                <option name="EstadoId" value="@tic.Id"> @tic.Nombre </option>
+            }
+            </select>
+    </div>
+
+    <div class="form-group">
+        <label><strong>Comentario</strong></label>
+        <textarea class="form-control" rows="3" name="Comentario"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label><strong>Fecha Ingreso</strong></label>
+        <div class="justify-content-center">
+            <input type="date" name="Finc">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><strong>Fecha Estimación</strong></label>
+        <div class="justify-content-center">
+            <input type="date" name="Fter">
+        </div>
+    </div>
+
+    <hr />
+    <div class="form-actions">
+        <button type="submit" class="btn btn-outline-success">Crear</button>
+        <button type="reset" class="btn">Limpiar</button>
+    </div>
+
+</form>

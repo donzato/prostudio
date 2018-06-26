@@ -1,19 +1,22 @@
-﻿@model STICKET.Models.Proyecto
-
-<h3><strong>EDITAR PROYECTO #@Model.Id</strong></h3><hr />
+﻿@model STICKET.Models.Actividad
 
 @Html.ValidationSummary()
 
-<form class="form-group" method="post" action="@Url.Action("Editar","Administrador")">
+<form class="form-group" method="post" action="@Url.Action("Editar","Actividad")">
 
     <div class="form-group">
-        <label>Nombre</label>
-        <input class="form-control" name="Nombre" value="@Model.Nombre">
+        <label for="LabelSelect"><strong>Ticket</strong></label>
+        <select class="form-control" name="TicketId">
+            @foreach (var tic in ViewBag.Ticket)
+            {
+                <option name="EstadoId" value="@tic.Id"> @tic.Nombre </option>
+            }
+        </select>
     </div>
 
     <div class="form-group">
         <label>Descripción</label>
-        <textarea class="form-control" rows="5" name="Descripcion">@Model.Descripcion</textarea>
+        <textarea class="form-control" rows="5" name="Comentario">@Model.Comentario</textarea>
     </div>
 
     <div class="form-group">
@@ -29,17 +32,6 @@
             <input class="text-center" type="datetime" name="Fter" value="@Model.Finc.Date">
         </div>
     </div>
-
-    <div class="form-group">
-        <label for="LabelSelect"><strong>Estado</strong></label>
-        <select class="form-control" name="EstadoId">
-            @foreach (var estadus in ViewBag.estados)
-            {
-                <option name="EstadoId" value="@estadus.Id"> @estadus.Nombre </option>
-            }
-        </select>
-    </div>
-
     <hr />
     <div class="form-actions">
         <button type="submit" class="btn btn-outline-success">Actualizar</button>

@@ -1,0 +1,31 @@
+﻿@model STICKET.Models.Sucursal
+
+@Html.ValidationSummary()
+<form class="form-group" method="post" action="@Url.Action("Editar","Sucursal")">
+
+    <div class="form-group">
+        <label>Nombre</label>
+        <input class="form-control" name="Nombre" value="@Model.Nombre">
+    </div>
+
+    <div class="form-group">
+        <label>Dirección</label>
+        <textarea class="form-control" rows="5" name="Direccion">@Model.Direccion</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="LabelSelect"><strong>Comuna</strong></label>
+        <select class="form-control" name="ComunaId">
+            @foreach (var com in ViewBag.Comuna)
+            {
+                <option name="EstadoId" value="@com.Id"> @com.Nombre </option>
+            }
+        </select>
+    </div>
+
+    <hr />
+    <div class="form-actions">
+        <button type="submit" class="btn btn-outline-success">Actualizar</button>
+        <button type="button" class="btn" onclick="history.back()">Volver</button>
+    </div>
+</form>
